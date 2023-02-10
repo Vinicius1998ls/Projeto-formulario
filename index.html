@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/organizer.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <script src="scripts.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,82 +13,86 @@
 </head>
 
 <body>
-    <h1>Formulario de pesquisa</h1>
-    <form action="">
+    <section>
+        <h1>Formulario de pesquisa</h1>
+        <form action="">
 
-        <div>
-            <label>Nome</label>
-            <input type="text">
-        </div>
+            <div>
+                <label>Nome</label>
+                <input type="text" id="name" value="" placeholder="Digite seu nome...">
+            </div>
 
-        <div class="right">
-            <label>Sobrenome</label>
-            <input type="text">
-        </div>
+            <div class="right">
+                <label>Sobrenome</label>
+                <input type="text" id="lastName" value="" placeholder="Digite seu Sobrenome...">
+            </div>
 
-        <div>
-            <label for="">Qual sua idade?</label>
-            <select name="" id="">
-                <option value="">Selecione</option>
-                <option value="">Menor de 18</option>
-                <option value="">Entre 18 e 24</option>
-                <option value="">Entre 25 a 59</option>
-                <option value="">Maior que 60</option>
-            </select>
-        </div>
+            <div>
+                <label for="">Qual sua idade?</label>
+                <select id="age">
+                    <option value="">Selecione</option>
+                    <option value="Jovem">Menor de 18</option>
+                    <option value="Jovem adulto">Entre 18 e 24</option>
+                    <option value="Adulto">Entre 25 a 59</option>
+                    <option value="Idoso">Maior que 60</option>
+                </select>
+            </div>
 
-        <div class="right">
-            <label for="">Sexo:</label>
-            <br>
-            <input type="radio">Masculino
-            <input type="radio">Feminino
-        </div>
-
-        <div class="checkbox">
-            <label for="">Qual horario você frequenta este local?
+            <div class="right">
+                <label for="">Sexo:</label>
                 <br>
-                <div class="shifts">
-                    <div>
-                        <input type="checkbox">Manhã
+                <input class="gender" type="radio" name="gender">
+                <label for="">Masculino</label>
+                <br>
+                <input class="gender" type="radio" name="gender">
+                <label for="">Feminino</label>
+            </div>
+
+            <div class="checkbox">
+                <label for="">Qual horario você frequenta este local?
+                    <br>
+                    <div class="shifts">
+                        <div>
+                            <input name="shift" type="checkbox" value="Manha">Manhã
+                        </div>
+                        <div>
+                            <input name="shift" type="checkbox" value="Tarde">Tarde
+                        </div>
+                        <div>
+                            <input name="shift" type="checkbox" value="Noite">Noite
+                        </div>
                     </div>
-                    <div>
-                        <input type="checkbox">Tarde
-                    </div>
-                    <div>
-                        <input type="checkbox">Noite
-                    </div>
-                </div>
-            </label>
-        </div>
+                </label>
+            </div>
 
-        <div class="range">
-            <label for="">Voce considera o ambiente confortavel?</label>
-            <label class="range-control">Pouco
-                <input type="range">            
-                Muito
-            </label>
-        </div>
+            <div class="range">
+                <label for="">Voce considera o ambiente confortavel?</label>
+                <label class="range-control">Pouco
+                    <input type="range" min="1" max="10" value="" id="range">
+                    Muito
+                </label>
+            </div>
 
-        <div class="textarea">
-            <label for="">Deixe sua sugestão ou critica:</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-        </div>
+            <div class="textarea">
+                <label for="">Deixe sua sugestão ou critica:</label>
+                <textarea name="" cols="30" rows="10" id="comment"></textarea>
+            </div>
 
-        <div class="email">
-            <label>Email</label>
-            <input type="text">
-        </div>
+            <div class="email">
+                <label>Email</label>
+                <input type="text" id="email">
+            </div>
 
-        <div class="phone">
-            <label for="">Seu numero</label>
-            <input type="tel">
-        </div>
+            <div class="phone">
+                <label for="">Seu numero</label>
+                <input type="tel" id="phone">
+            </div>
 
-        <div class="submit">
-            <input type="submit">
-        </div>
-    </form>
-
+            <div class="submit">
+                <input type="submit" onclick=(send())>
+            </div>
+        </form>
+    </section>
 </body>
 
 </html>
