@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="styles/organizer.css">
     <link rel="stylesheet" href="styles/styles.css">
     <script src="scripts.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +21,7 @@
                 <input type="text" id="name" value="" placeholder="Digite seu nome...">
             </div>
 
-            <div class="right">
+            <div right>
                 <label>Sobrenome</label>
                 <input type="text" id="lastName" value="" placeholder="Digite seu Sobrenome...">
             </div>
@@ -38,14 +37,17 @@
                 </select>
             </div>
 
-            <div class="right">
+            <div right>
                 <label for="">Sexo:</label>
                 <br>
-                <input class="gender" type="radio" name="gender">
-                <label for="">Masculino</label>
-                <br>
-                <input class="gender" type="radio" name="gender">
-                <label for="">Feminino</label>
+                <div class="genderOption">
+                    <input class="gender" type="radio" name="gender" checked>
+                    <label for="">Masculino</label>
+                </div>
+                <div class="genderOption">
+                    <input class="gender" type="radio" name="gender">
+                    <label for="">Feminino</label>
+                </div>
             </div>
 
             <div class="checkbox">

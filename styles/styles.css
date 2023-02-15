@@ -6,15 +6,36 @@ body {
 }
 
 section {
+    margin: 100px auto 0 auto;
+    max-width: 400px;
     padding: 20px;
     background-color: #ffffff;
     border: 4px solid #050505;
-    border-radius: 10px;
-    
+    border-radius: 10px;    
 }
 
 h1 {
+    display: flex;
+    /* Define como flex */
+    justify-content: center;
+    /* Alinha ao centro da tela na horizontal */
     font-family: 'Signika', sans-serif;
+}
+
+form {
+    display: grid;
+    /* Define como grid */
+    grid-template-columns: 1fr 1fr;
+    /* Cria colunas */
+    grid-template-rows: 1fr;
+    margin: 0 auto;
+    /* Alinha ao centro da tela na horizontal */
+    max-width: 400px;
+    /* Define a largura maxima */
+}
+
+form div {
+    padding: 5px;
 }
 
 label {
@@ -32,23 +53,100 @@ select {
     border-radius: 5px;
 }
 
-/* .gender {
-    border: 2px solid black;
-    height: 20px;
-} */
+[right]{
+    margin-left: 23px;
+}
 
-/* input.gender {
-    border: 10px double #000;
-    border-width: 10px 10px;
-} */
+.checkbox {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 3;
+}
+
+.shifts {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.range {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 4;
+}
+
+.range input {
+    width: 60%;
+}
+
+.range-control {
+    display: flex;
+    justify-content: space-between;
+}
+
+.textarea {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 5;
+}
+
+.email {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 6;    
+}
+
+.phone {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 7;    
+}
+
+.submit {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 8;  
+    margin: 0 auto;
+}
 
 .gender {
-    content: "";
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 3px double #000;
+    cursor: pointer;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    margin: 5px;
     border-radius: 50%;
-    margin-right: 10px;
-    vertical-align: middle;
+    outline: none;
+    border: 2px solid black;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gender:before {
+    content: '';
+    position: absolute;
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    background: gray;
+    opacity: 0;
+  }
+
+  .gender:checked:before { 
+    opacity: 1;
+    transition: 600ms;
+  }
+
+  .genderOption {
+    display: flex;
+    align-items: baseline;
+    padding: 0;
   }
