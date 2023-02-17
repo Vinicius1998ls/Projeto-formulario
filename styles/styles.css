@@ -80,15 +80,13 @@ select {
     align-self: center;
 }
 
-.genderContainer div {
-    align-items: flex-start;
-    justify-content: center;
-    align-content: flex-start;
+.genderContainer .genderOption {
+    margin: 0 auto;
 }
 
-/* .genderContainer div:last-child {
-    
-} */
+[centralizer] {
+    transform: translateX(-3px);
+}
 
 .gender {
     cursor: pointer;
@@ -122,7 +120,6 @@ select {
 
 .genderOption {
     display: flex;
-    align-items: baseline;
     padding: 0;
 }
 
@@ -137,6 +134,46 @@ select {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
+}
+
+.shifts div {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.shift {
+    cursor: pointer;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    border-radius: 0;
+    outline: none;
+    border: 2px solid black;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shift:before {
+    border-radius: 0;
+    width: 6px;
+    height: 10px;
+    background: none;
+    border-right: 3px solid gray;
+    border-bottom: 3px solid gray;
+    transform: rotate(45deg);
+    bottom: 3px;
+    content: '';
+    /* position: absolute; */
+    opacity: 0;
+}
+
+.shift:checked:before {
+    opacity: 1;
+    transition: 600ms;
 }
 
 .range {
