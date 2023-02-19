@@ -192,6 +192,35 @@ select {
     justify-content: space-between;
 }
 
+#range {
+    -webkit-appearance: none;
+    background: white;
+    outline: none;
+    /* width: 100%; */
+    height: 8px;
+    border-radius: 9px;   
+}
+
+#range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 25px;
+    border-radius: 10%; 
+
+    background: black;
+    cursor: pointer;
+}
+
+#range::-moz-range-thumb {
+    width: 15px;
+    height: 25px;
+    border-radius: 10%;
+
+    background: #2796ee;
+    cursor: pointer;
+}
+
 .textarea {
     display: grid;
     grid-column-start: 1;
