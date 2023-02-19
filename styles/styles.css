@@ -224,6 +224,11 @@ select {
     grid-row-start: 5;
 }
 
+textarea {
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
 .email {
     display: grid;
     grid-column-start: 1;
