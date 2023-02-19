@@ -183,20 +183,16 @@ select {
     grid-row-start: 4;
 }
 
-.range input {
-    width: 60%;
-}
-
 .range-control {
     display: flex;
     justify-content: space-between;
 }
 
 #range {
-    -webkit-appearance: none;
+    appearance: none;
     background: white;
     outline: none;
-    /* width: 100%; */
+    width: 60%;
     height: 8px;
     border-radius: 9px;   
 }
@@ -217,7 +213,7 @@ select {
     height: 25px;
     border-radius: 10%;
 
-    background: #2796ee;
+    background: black;
     cursor: pointer;
 }
 
