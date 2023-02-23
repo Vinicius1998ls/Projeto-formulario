@@ -35,7 +35,7 @@ form {
 }
 
 form div {
-    padding: 5px;
+    padding: 2px 5px;
 }
 
 label {
@@ -47,6 +47,10 @@ input {
     border: 2px solid black;
     border-radius: 5px;
     background-color: #E8EDDF;
+}
+
+span {
+    display: none;
 }
 
 .name {
@@ -89,7 +93,8 @@ select {
 .select {
     display: flex;
     flex-direction: column;   
-    margin-top: 10px;
+    /* margin-top: 10px; */
+    padding: 0;
 }
 
 .select label {
@@ -102,8 +107,9 @@ select {
 .genderContainer {
     display: flex;
     flex-direction: column;   
-    margin-top: 10px;
+    /* margin-top: 10px; */
     align-self: center;
+    padding: 0 0 5px 0;
 }
 
 .genderContainer label {
@@ -211,11 +217,13 @@ select {
     grid-column-start: 1;
     grid-column-end: span 2;
     grid-row-start: 4;
+    margin: 5px 0;
 }
 
 .range-control {
     display: flex;
     justify-content: space-between;
+    margin: 5px 0;
 }
 
 #range {
@@ -274,10 +282,81 @@ textarea {
     grid-row-start: 7;
 }
 
-.submit {
+.submitContainer {
     display: grid;
     grid-column-start: 1;
     grid-column-end: span 2;
     grid-row-start: 8;
     margin: 0 auto;
+}
+
+.required {
+    margin-bottom: 1px;
+    height: 20px;
+}
+
+small {
+    color: red;
+    font-family: 'Open Sans', sans-serif;
+    top: 5px;
+    margin-left: 5px;
+    visibility: hidden;
+}
+
+.success {
+    position: relative;
+}
+
+.success i {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+}
+
+.error {
+    position: relative;
+}
+
+.error i {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+}
+
+.img-success {
+    width: 15px;
+    height: 15px;
+    visibility: hidden;
+}
+
+.img-error {
+    width: 15px;
+    height: 15px;
+    visibility: hidden;
+}
+
+.form-control.success input {
+    border: 3px solid green
+}
+
+.form-control.error input {
+    border: 3px solid red
+}
+
+.form-control.success i .img-success {
+    visibility: visible;
+}
+
+.form-control.error i .img-error {
+    visibility: visible;
+}
+
+.form-control.error small {
+    visibility: visible;
 }

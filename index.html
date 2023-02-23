@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="styles/styles.css">
-    <script src="scripts.js"></script>
+    <!-- <script src="scripts.js"></script> -->
+    <script src="validator.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Formulario</title>
@@ -14,23 +15,32 @@
 <body>
     <section>
         <h1>Formulario de pesquisa</h1>
-        <form action="">
+        <form id="form" action="">
 
             <div class="name">
-                <div>
-                    <label>Nome</label>
-                    <input type="text" id="name" value="" placeholder="Digite seu nome...">
+                <div class="form-control">
+                    <label for="name">Nome</label>
+                    <input type="text" class="required" value="" id="name"
+                        placeholder="Digite seu nome...">
+                    <i><img class="img-error" src="imgs/error-icon.svg" alt=""></i>
+                    <i><img class="img-success" src="imgs/success-icon.svg" alt=""></i>
+
+                    <small>Erro</small>
                 </div>
-    
-                <div right>
-                    <label>Sobrenome</label>
-                    <input type="text" id="lastName" value="" placeholder="Digite seu Sobrenome...">
+
+                <div class="form-control" right>
+                    <label for="lastName">Sobrenome</label>
+                    <input type="text" class="required" id="last-name" value="" placeholder="Digite seu Sobrenome...">
+                    <i><img class="img-error" src="imgs/error-icon.svg" alt=""></i>
+                    <i><img class="img-success" src="imgs/success-icon.svg" alt=""></i>
+
+                    <small>Erro</small>
                 </div>
             </div>
-            
+
 
             <div class="select">
-                <label for="">Qual sua idade?</label>
+                <label for="age">Qual sua idade?</label>
                 <select id="age">
                     <option value="">Selecione</option>
                     <option value="Jovem">Menor de 18</option>
@@ -43,30 +53,31 @@
             <div class="genderContainer">
                 <label for="">Sexo:</label>
                 <div class="genderOption">
-                    <input class="gender" type="radio" name="gender" checked>
-                    <label for="">Masculino</label>
+                    <input class="gender" type="radio" name="gender" id="gender" checked>
+                    <label for="gender">Masculino</label>
                 </div>
                 <div class="genderOption" centralizer>
-                    <input class="gender" type="radio" name="gender">
-                    <label for="">Feminino</label>
+                    <input class="gender" type="radio" name="gender" id="gender">
+                    <label for="gender">Feminino</label>
                 </div>
             </div>
 
             <div class="checkbox">
-                <label for="">Qual horario você frequenta este local?
-                    <br>
-                    <div class="shifts">
-                        <div>
-                            <input class="shift" name="shift" type="checkbox" value="Manha">Manhã
-                        </div>
-                        <div>
-                            <input class="shift" name="shift" type="checkbox" value="Tarde">Tarde
-                        </div>
-                        <div>
-                            <input class="shift" name="shift" type="checkbox" value="Noite">Noite
-                        </div>
+                <label for="">Qual horario você frequenta este local?</label>
+                <div class="shifts">
+                    <div>
+                        <input class="shift" name="shift" type="checkbox" value="Manha">
+                        <label>Manhã</label>
                     </div>
-                </label>
+                    <div>
+                        <input class="shift" name="shift" type="checkbox" value="Tarde">
+                        <label>Tarde</label>
+                    </div>
+                    <div>
+                        <input class="shift" name="shift" type="checkbox" value="Noite">
+                        <label>Noite</label>
+                    </div>
+                </div>
             </div>
 
             <div class="range">
@@ -93,8 +104,9 @@
                 <input type="tel" id="phone" placeholder="55 00 00000 0000">
             </div>
 
-            <div class="submit">
-                <input type="submit" onclick=(send())>
+            <div class="submitContainer">
+                <input class="submit" type="submit">
+                <!-- <input type="submit" onclick=(send())> -->
             </div>
         </form>
     </section>
