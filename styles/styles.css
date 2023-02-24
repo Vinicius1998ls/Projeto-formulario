@@ -83,7 +83,7 @@ span {
     }
 }
 
-select {
+.age {
     border: 2px solid black;
     border-radius: 5px;
     align-self: center;
@@ -95,10 +95,11 @@ select {
     flex-direction: column;   
     /* margin-top: 10px; */
     padding: 0;
+    align-items: center;
 }
 
 .select label {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     align-self: center;    
 }
 
@@ -359,4 +360,27 @@ small {
 
 .form-control.error small {
     visibility: visible;
+}
+
+.age-error {
+    border: 3px solid red;
+    border-radius: 5px;
+    align-self: center;
+    background-color: #E8EDDF;
+}
+
+.age-success {
+    border: 3px solid green;
+    border-radius: 5px;
+    align-self: center;
+    background-color: #E8EDDF;
+}
+
+.select.error small {
+    visibility: visible;
+    margin-top: 5px;
+}
+
+.select.success small {
+    visibility: hidden;
 }

@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form')
     const userName = document.getElementById('name')
     const lastName = document.getElementById('last-name')
+    const age = document.getElementById('age')
 
 
     form.addEventListener('submit', (e) => {
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkInputs() {
         const nameValue = userName.value.trim()
         const lastNameValue = lastName.value.trim()
+        const ageValue = age.value
 
         if (nameValue === '') {
             errorValidation(userName, 'Preencha o campo')
@@ -21,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if(nameValue.length < 2){
             errorValidation(userName, 'Minimo 2 caracteres')
         } else {
-            successValiation(userName)
+            successValidation(userName)
         }
 
         if (lastNameValue === '') {
@@ -30,7 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if(nameValue.length < 2){
             errorValidation(lastName, 'Minimo 2 caracteres')
         } else {
-            successValiation(lastName)
+            successValidation(lastName)
+        }
+
+        if(ageValue === '') {
+            errorValidationSelect(age, 'Selecione uma opção')
+        } else {
+            successValidationSelect(age)
         }
     }
 
@@ -43,10 +51,27 @@ document.addEventListener('DOMContentLoaded', () => {
         formControl.className = 'form-control error'
     }
 
-    function successValiation(input) {
+    function successValidation(input) {
         const formControl = input.parentElement;
 
         formControl.className = 'form-control success'
+    }
+
+    function errorValidationSelect(select, message) {
+        const formControl = select.parentElement;
+        const small = formControl.querySelector('small')
+
+        small.innerText = message
+
+        formControl.className = 'select error'
+        select.className = 'age-error'
+    }
+
+    function successValidationSelect(select) {
+        const formControl = select.parentElement;
+
+        formControl.className = 'select success'
+        select.className = 'age-success'
     }
 
 })
