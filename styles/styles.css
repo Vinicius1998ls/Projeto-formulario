@@ -384,3 +384,20 @@ small {
 .select.success small {
     visibility: hidden;
 }
+
+.shift-error {
+    border: 3px solid red;
+}
+
+.checkbox.error small {
+    visibility: visible;
+    margin-top: 5px;
+}
+
+.shift-success {
+    border: 3px solid green;
+}
+
+.checkbox.success small {
+    visibility: hidden;
+}
