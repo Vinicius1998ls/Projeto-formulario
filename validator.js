@@ -3,7 +3,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form')
     const userName = document.getElementById('name')
     const lastName = document.getElementById('last-name')
-    const age = document.getElementById('age')  
+    const age = document.getElementById('age')
+    
+    function shift() {
+        let shifts = document.getElementsByName('shift')
+        let shiftCheck = []
+    
+        shiftCheck = Array.from(shifts).filter(shift => shift.checked).map(shift => shift.value)
+        return shiftCheck
+    }  
     
 
     form.addEventListener('submit', (e) => {
@@ -16,24 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const nameValue = userName.value.trim()
         const lastNameValue = lastName.value.trim()
         const ageValue = age.value
-    
-        function shift() {
-            let shifts = document.getElementsByName('shift')
-            let shiftCheck = []
-        
-            shiftCheck = Array.from(shifts).filter(shift => shift.checked).map(shift => shift.value)
-            return shiftCheck
-        }
+        const shiftValue = shift()        
 
-        // console.log(shift())
-
-        let checkBox = shift()
-        
-        // console.log(checkBox)
-        
-        const shiftValue = checkBox
-
-        // console.log(shiftValue)
+        // checagem dos valores
 
         if (nameValue === '') {
             errorValidation(userName, 'Preencha o campo')
@@ -45,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (lastNameValue === '') {
             errorValidation(lastName, 'Preencha o campo')
-        } else if(nameValue.length < 2){
+        } else if(lastNameValue.length < 2){
             errorValidation(lastName, 'Minimo 2 caracteres')
         } else {
             successValidation(lastName)
@@ -64,7 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Validadores
 
+    // Validação de input text
 
     function errorValidation(input, message) {
         const formControl = input.parentElement;
@@ -81,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formControl.className = 'form-control success'
     }
 
+    //Validador para select
 
     function errorValidationSelect(select, message) {
         const formControl = select.parentElement;
@@ -99,6 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
         select.className = 'age-success'
     }
 
+    //Validador para checkbox
+
     function errorCheck(message) {
 
         const checkBox = document.querySelector('.checkbox')
@@ -111,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const box = document.getElementsByClassName('shift')
 
         Array.from(box).forEach((element) => {
+            element.classList.remove('shift-success');
             element.classList.add('shift-error');
         });
     }
