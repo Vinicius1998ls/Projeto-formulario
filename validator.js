@@ -4,33 +4,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const userName = document.getElementById('name')
     const lastName = document.getElementById('last-name')
     const age = document.getElementById('age')
-    
+    const email = document.getElementById('email')
+    const phone = document.getElementById('phone')
+
+
     function shift() {
         let shifts = document.getElementsByName('shift')
         let shiftCheck = []
-    
+
         shiftCheck = Array.from(shifts).filter(shift => shift.checked).map(shift => shift.value)
         return shiftCheck
-    }  
-    
+    }
 
     form.addEventListener('submit', (e) => {
         e.preventDefault()
 
         checkInputs()
-    })
+    })    
 
     function checkInputs() {
         const nameValue = userName.value.trim()
         const lastNameValue = lastName.value.trim()
         const ageValue = age.value
-        const shiftValue = shift()        
+        const shiftValue = shift()
+        const emailValue = email.value
+        const phoneValue = phone.value.trim()
+
+        const mailRegex = /^[\w._-]+@[\w_.-]+\.[\w]/gi
+        
 
         // checagem dos valores
 
         if (nameValue === '') {
             errorValidation(userName, 'Preencha o campo')
-        } else if(nameValue.length < 2){
+        } else if (nameValue.length < 2) {
             errorValidation(userName, 'Minimo 2 caracteres')
         } else {
             successValidation(userName)
@@ -38,22 +45,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (lastNameValue === '') {
             errorValidation(lastName, 'Preencha o campo')
-        } else if(lastNameValue.length < 2){
+        } else if (lastNameValue.length < 2) {
             errorValidation(lastName, 'Minimo 2 caracteres')
         } else {
             successValidation(lastName)
         }
 
-        if(ageValue === '') {
+        if (ageValue === '') {
             errorValidationSelect(age, 'Selecione uma opção')
         } else {
             successValidationSelect(age)
         }
 
-        if(shiftValue.length === 0) {
+        if (shiftValue.length === 0) {
             errorCheck('Uma ou mais opções deve ser marcadas')
         } else {
             successCheck()
+        }
+
+        if (emailValue === '') {                       
+            errorValidationInput(email, 'Digite seu email')
+        } else if (!mailRegex.test(emailValue)) {
+            errorValidationInput(email, 'Digite um email valido, com "@" e "."')
+        } else {
+            successValidationInput(email)
+        }
+
+        if (phoneValue === '') {
+            errorValidationInput(phone, 'Digite seu numero')
+        } else if (phoneValue.length < 14) {
+            errorValidationInput(phone, 'Digite um numero valido')
+        } else {
+            successValidationInput(phone)
         }
     }
 
@@ -74,6 +97,46 @@ document.addEventListener('DOMContentLoaded', () => {
         const formControl = input.parentElement;
 
         formControl.className = 'form-control success'
+    }
+
+    function errorValidationInput(input, message) {
+
+        if (input.type === 'email') {
+            const email = input.parentElement;
+            const small = email.querySelector('small')
+            small.innerText = message
+
+            email.className = 'email email-error'
+            input.className = 'large-input-error'
+        } else {
+            const phone = input.parentElement;
+            const small = phone.querySelector('small')
+            small.innerText = message
+
+            phone.className = 'phone phone-error'
+            input.className = 'large-input-error'
+        }
+
+
+    }
+
+    function successValidationInput(input, message) {
+
+        if (input.type === 'email') {
+            const email = input.parentElement;
+            const small = email.querySelector('small')
+            small.innerText = message
+
+            email.className = 'email email-success'
+            input.className = 'large-input-success'
+        } else {
+            const phone = input.parentElement;
+            const small = phone.querySelector('small')
+            small.innerText = message
+
+            phone.className = 'phone phone-success'
+            input.className = 'large-input-success'
+        }
     }
 
     //Validador para select
@@ -101,10 +164,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const checkBox = document.querySelector('.checkbox')
         checkBox.className = 'checkbox error'
-        
+
         const small = checkBox.querySelector('small')
         small.innerText = message
-        
+
 
         const box = document.getElementsByClassName('shift')
 
@@ -114,10 +177,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function successCheck () {
+    function successCheck() {
         const checkBox = document.querySelector('.checkbox')
         checkBox.className = 'checkbox success'
-        
+
         const box = document.getElementsByClassName('shift')
 
         Array.from(box).forEach((element) => {

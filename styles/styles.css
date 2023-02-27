@@ -276,6 +276,10 @@ textarea {
     grid-row-start: 6;
 }
 
+.large-input {
+    height: 20px;
+}
+
 .phone {
     display: grid;
     grid-column-start: 1;
@@ -399,5 +403,31 @@ small {
 }
 
 .checkbox.success small {
+    visibility: hidden;
+}
+
+.large-input-error {
+    height: 20px;
+    border: 3px solid red;
+}
+
+.large-input-success {
+    height: 20px;
+    border: 3px solid green;
+}
+
+.email-error small {
+    visibility: visible;
+}
+
+.email-success small {
+    visibility: hidden;
+}
+
+.phone-error small {
+    visibility: visible;
+}
+
+.phone-success small {
     visibility: hidden;
 }
