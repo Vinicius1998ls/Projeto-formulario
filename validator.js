@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {   
 
     const form = document.getElementById('form')
     const userName = document.getElementById('name')
@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const age = document.getElementById('age')
     const email = document.getElementById('email')
     const phone = document.getElementById('phone')
-
 
     function shift() {
         let shifts = document.getElementsByName('shift')
@@ -16,11 +15,65 @@ document.addEventListener('DOMContentLoaded', () => {
         return shiftCheck
     }
 
+    //Checagem em tempo real
+
+    userName.addEventListener('blur', () => {
+        const name = userName.value.trim()
+
+        if (name === '') {
+            errorValidation(userName, 'Preencha o campo')
+        } else if (name.length < 2) {
+            errorValidation(userName, 'Minimo 2 caracteres')
+        } else {
+            successValidation(userName)
+        }
+    })
+
+    lastName.addEventListener('blur', () => {
+        const lastNameValue = lastName.value.trim()
+
+        if (lastNameValue === '') {
+            errorValidation(lastName, 'Preencha o campo')
+        } else if (lastNameValue.length < 2) {
+            errorValidation(lastName, 'Minimo 2 caracteres')
+        } else {
+            successValidation(lastName)
+        }
+    })
+
+    email.addEventListener('blur', () => {
+        const emailValue = email.value
+        const mailRegex = /^[\w._-]+@[\w_.-]+\.[\w]/gi
+
+        if (emailValue === '') {
+            errorValidationInput(email, 'Digite seu email')
+        } else if (!mailRegex.test(emailValue)) {
+            errorValidationInput(email, 'Digite um email valido, com "@" e "."')
+        } else {
+            successValidationInput(email)
+        }
+    })
+
+    phone.addEventListener('blur', () => {
+        const phoneValue = phone.value.trim()
+        
+        if (phoneValue === '') {
+            errorValidationInput(phone, 'Digite seu numero')
+        } else if (phoneValue.length < 14) {
+            errorValidationInput(phone, 'Digite um numero valido')
+        } else {
+            successValidationInput(phone)
+        }
+    })
+    
+
+    // checagem ao clicar em enviar
+
     form.addEventListener('submit', (e) => {
         e.preventDefault()
 
         checkInputs()
-    })    
+    })
 
     function checkInputs() {
         const nameValue = userName.value.trim()
@@ -31,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const phoneValue = phone.value.trim()
 
         const mailRegex = /^[\w._-]+@[\w_.-]+\.[\w]/gi
-        
+
 
         // checagem dos valores
 
@@ -63,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
             successCheck()
         }
 
-        if (emailValue === '') {                       
+        if (emailValue === '') {
             errorValidationInput(email, 'Digite seu email')
         } else if (!mailRegex.test(emailValue)) {
             errorValidationInput(email, 'Digite um email valido, com "@" e "."')
