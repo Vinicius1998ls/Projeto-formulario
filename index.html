@@ -21,20 +21,13 @@
             <div class="name">
                 <div class="form-control">
                     <label for="name">Nome</label>
-                    <input type="text" class="required" value="" id="name"
-                        placeholder="Digite seu nome..."> 
-                    <i><img class="img-error" src="imgs/error-icon.svg" alt=""></i>
-                    <i><img class="img-success" src="imgs/success-icon.svg" alt=""></i>
-
+                    <input type="text" class="required" value="" id="name" placeholder="Digite seu nome...">
                     <small>Erro</small>
                 </div>
 
                 <div class="form-control" right>
                     <label for="lastName">Sobrenome</label>
                     <input type="text" class="required" id="last-name" value="" placeholder="Digite seu Sobrenome...">
-                    <i><img class="img-error" src="imgs/error-icon.svg" alt=""></i>
-                    <i><img class="img-success" src="imgs/success-icon.svg" alt=""></i>
-
                     <small>Erro</small>
                 </div>
             </div>
@@ -46,7 +39,7 @@
                     <option value="">Selecione</option>
                     <option value="Jovem">Menor de 18</option>
                     <option value="Jovem adulto">Entre 18 e 24</option>
-                    <option value="Adulto">Entre 25 a 59</option>
+                    <option value="Adulto">Entre 25 e 59</option>
                     <option value="Idoso">Maior que 60</option>
                 </select>
                 <small>error</small>
@@ -55,12 +48,12 @@
             <div class="genderContainer">
                 <label for="">Sexo:</label>
                 <div class="genderOption">
-                    <input class="gender" type="radio" name="gender" id="gender" checked>
-                    <label for="gender">Masculino</label>
+                    <input class="gender" type="radio" name="gender" id="male" checked>
+                    <label for="male">Masculino</label>
                 </div>
                 <div class="genderOption" centralizer>
-                    <input class="gender" type="radio" name="gender" id="gender">
-                    <label for="gender">Feminino</label>
+                    <input class="gender" type="radio" name="gender" id="female">
+                    <label for="female">Feminino</label>
                 </div>
             </div>
 
@@ -99,15 +92,15 @@
 
             <div class="email">
                 <label>Email</label>
-                <input class="large-input" type="email" id="email" 
-                        placeholder="Exemplo: fulano@mail.com" >
+                <input class="large-input" type="email" id="email" placeholder="Exemplo: fulano@mail.com">
+                
                 <small>erro</small>
             </div>
 
             <div class="phone">
-                <label for="">Seu numero</label>
-                <input class="large-input" type="tel" id="phone" placeholder="55 00 00000 0000"
-                maxlength="15" onkeyup="handlePhone(event)" >
+                <label for="">Telefone</label>
+                <input class="large-input" type="tel" id="phone" placeholder="(00) 00000 0000" maxlength="15"
+                    onkeyup="handlePhone(event)">
                 <small>erro</small>
             </div>
 
