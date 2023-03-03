@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {   
+document.addEventListener('DOMContentLoaded', () => {
 
     const form = document.getElementById('form')
     const userName = document.getElementById('name')
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         shiftCheck = Array.from(shifts).filter(shift => shift.checked).map(shift => shift.value)
         return shiftCheck
     }
+
 
     //Checagem em tempo real
 
@@ -56,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     phone.addEventListener('blur', () => {
         const phoneValue = phone.value.trim()
-        
+
         if (phoneValue === '') {
             errorValidationInput(phone, 'Digite seu numero')
         } else if (phoneValue.length < 14) {
@@ -65,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             successValidationInput(phone)
         }
     })
-    
+
 
     // checagem ao clicar em enviar
 
@@ -111,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (shiftValue.length === 0) {
-            errorCheck('Uma ou mais opções deve ser marcadas')
+            errorCheck('Uma ou mais opções devem ser marcadas')
         } else {
             successCheck()
         }
@@ -132,6 +133,40 @@ document.addEventListener('DOMContentLoaded', () => {
             successValidationInput(phone)
         }
     }
+
+    //checagem após mudar
+
+    age.addEventListener('change', () => {
+        if (age.className === 'age-error') {
+            successValidationSelect(age)
+        }
+    })
+
+    function shiftClass() {
+        let shifts = document.getElementsByName('shift')
+        let shiftClass = []
+
+        shiftClass = Array.from(shifts).filter(shift => shift.className)
+        return shiftClass
+    }
+
+    const box = shiftClass()
+    box[0].addEventListener('change', () => {
+        if (box[0].className === 'shift shift-error') {
+            successCheck()
+        }
+    })
+    box[1].addEventListener('change', () => {
+        if (box[1].className === 'shift shift-error') {
+            successCheck()
+        }
+    })
+    box[2].addEventListener('change', () => {
+        if (box[2].className === 'shift shift-error') {
+            successCheck()
+        }
+    })
+
 
     // Validadores
 

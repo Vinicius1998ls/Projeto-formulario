@@ -92,6 +92,7 @@ span {
     .name {
         grid-template-columns: 1fr;
         grid-template-rows: 1;
+        margin-bottom: 5px;
     }
 
     [right] {
@@ -109,14 +110,14 @@ span {
 .select {
     display: flex;
     flex-direction: column;
-    /* margin-top: 10px; */
+    /* margin-top: 5px; */
     padding: 0;
     align-items: center;
+    height: 30px;
 }
 
 select {
-    font-size: 0.9rem;
-    height: 25px;
+    font-size: 0.9rem;    
 }
 
 select option {
@@ -188,6 +189,11 @@ select option {
     grid-column-start: 1;
     grid-column-end: span 2;
     grid-row-start: 3;
+    height: 60px;
+}
+
+.checkbox small {
+    font-size: 0.9rem;
 }
 
 .shifts {
@@ -207,7 +213,7 @@ select option {
     appearance: none;
     width: 20px;
     height: 20px;
-    margin: 5px;
+    margin: 0 5px;
     border-radius: 0;
     outline: none;
     border: 2px solid black;
