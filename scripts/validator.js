@@ -73,10 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault()
 
-        checkInputs()
+        checkInputs()        
     })
 
     function checkInputs() {
+                
         const nameValue = userName.value.trim()
         const lastNameValue = lastName.value.trim()
         const ageValue = age.value
@@ -85,56 +86,79 @@ document.addEventListener('DOMContentLoaded', () => {
         const phoneValue = phone.value.trim()
 
         const mailRegex = /^[\w._-]+@[\w_.-]+\.[\w]/gi
-
+ 
+        let checkList = Array(6).fill('');        
 
         // checagem dos valores
 
         if (nameValue === '') {
+            checkList[0] = ''
             errorValidation(userName, 'Preencha o campo')
         } else if (nameValue.length < 2) {
+            checkList[0] = ''
             errorValidation(userName, 'Minimo 2 caracteres')
         } else {
+            checkList[0] = 'ok'
             successValidation(userName)
         }
 
         if (lastNameValue === '') {
+            checkList[1] = ''
             errorValidation(lastName, 'Preencha o campo')
         } else if (lastNameValue.length < 2) {
+            checkList[1] = ''
             errorValidation(lastName, 'Minimo 2 caracteres')
         } else {
+            checkList[1] = 'ok'
             successValidation(lastName)
         }
 
         if (ageValue === '') {
+            checkList[2] = ''
             errorValidationSelect(age, 'Selecione uma opção')
         } else {
+            checkList[2] = 'ok'
             successValidationSelect(age)
         }
 
         if (shiftValue.length === 0) {
+            checkList[3] = ''
             errorCheck('Uma ou mais opções devem ser marcadas')
         } else {
+            checkList[3] = 'ok'
             successCheck()
         }
 
         if (emailValue === '') {
+            checkList[4] = ''
             errorValidationInput(email, 'Digite seu email')
         } else if (!mailRegex.test(emailValue)) {
+            checkList[4] = ''
             errorValidationInput(email, 'Digite um email valido, com "@" e "."')
         } else {
+            checkList[4] = 'ok'
             successValidationInput(email)
         }
 
         if (phoneValue === '') {
+            checkList[5] = ''
             errorValidationInput(phone, 'Digite seu numero')
         } else if (phoneValue.length < 14) {
+            checkList[5] = ''
             errorValidationInput(phone, 'Digite um numero valido')
         } else {
+            checkList[5] = 'ok'
             successValidationInput(phone)
+        }
+
+        const allOk = checkList.filter((check => check === 'ok'))
+
+        if(allOk.length == 6) {
+            location.replace("pages/thanks.html")
         }
     }
 
-    //checagem após mudar
+    //checagem após mudar valor
 
     age.addEventListener('change', () => {
         if (age.className === 'age-error') {
@@ -204,8 +228,6 @@ document.addEventListener('DOMContentLoaded', () => {
             phone.className = 'phone phone-error'
             input.className = 'large-input-error'
         }
-
-
     }
 
     function successValidationInput(input, message) {
@@ -246,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
         select.className = 'age-success'
     }
 
-    //Validador para checkbox
+    //Validador para checkbox    
 
     function errorCheck(message) {
 
@@ -262,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
         Array.from(box).forEach((element) => {
             element.classList.remove('shift-success');
             element.classList.add('shift-error');
-        });
+        });        
     }
 
     function successCheck() {
@@ -273,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         Array.from(box).forEach((element) => {
             element.classList.add('shift-success');
-        });
+            element.classList.remove('shift-error')
+        });        
     }
-
 })

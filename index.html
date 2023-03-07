@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="styles/styles.css">
-    <!-- <script src="scripts.js"></script> -->
-    <script src="validator.js"></script>
-    <script src="mask.js"></script>
+    <script src="scripts/validator.js"></script>
+    <script src="scripts/mask.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Formulario</title>
@@ -16,7 +15,7 @@
 <body>
     <section>
         <h1>Formulario de pesquisa</h1>
-        <form id="form" action="" novalidate>
+        <form id="form" novalidate>
 
             <div class="name">
                 <div class="form-control">
@@ -93,7 +92,6 @@
             <div class="email">
                 <label>Email</label>
                 <input class="large-input" type="email" id="email" placeholder="Exemplo: fulano@mail.com">
-                
                 <small>erro</small>
             </div>
 
@@ -105,8 +103,7 @@
             </div>
 
             <div class="submitContainer">
-                <input class="submit" type="submit">
-                <!-- <input type="submit" onclick=(send())> -->
+                <input class="submit" type="submit" value="Enviar">
             </div>
         </form>
     </section>

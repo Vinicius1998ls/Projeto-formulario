@@ -1,6 +1,5 @@
 body {
     background-color: #242423;
-    /* background: linear-gradient(to bottom, #313431 0%, #00002c 100%); */
     height: 100vh;
     color: #E8EDDF;
 }
@@ -16,22 +15,16 @@ section {
 
 h1 {
     display: flex;
-    /* Define como flex */
     justify-content: center;
-    /* Alinha ao centro da tela na horizontal */
     font-family: 'Signika', sans-serif;
 }
 
 form {
     display: grid;
-    /* Define como grid */
-    grid-template-columns: 1fr 1fr;
-    /* Cria colunas */
+    grid-template-columns: 1fr 1fr;    
     grid-template-rows: 1fr;
     margin: 0 auto;
-    /* Alinha ao centro da tela na horizontal */
-    max-width: 400px;
-    /* Define a largura maxima */
+    max-width: 400px;    
 }
 
 form div {
@@ -110,7 +103,6 @@ span {
 .select {
     display: flex;
     flex-direction: column;
-    /* margin-top: 5px; */
     padding: 0;
     align-items: center;
     height: 30px;
@@ -132,7 +124,6 @@ select option {
 .genderContainer {
     display: flex;
     flex-direction: column;
-    /* margin-top: 10px; */
     align-self: center;
     padding: 0 0 5px 0;
 }
@@ -233,7 +224,6 @@ select option {
     transform: rotate(45deg);
     bottom: 3px;
     content: '';
-    /* position: absolute; */
     opacity: 0;
 }
 
@@ -280,8 +270,8 @@ select option {
     width: 15px;
     height: 25px;
     border-radius: 10%;
-
-    background: black;
+    border: 1px black solid;
+    background: #F0B718;
     cursor: pointer;
 }
 
@@ -345,11 +335,7 @@ textarea {
 }
 
 
-
-/* .required {
-    margin-bottom: 1px;
-    height: 20px;
-} */
+/* Estilo da validação */
 
 small {
     color: #FF3D01;
@@ -362,12 +348,10 @@ small {
 
 .form-control.success input {
     border: 2px solid #88A429;
-    /* box-shadow: 0 0 3px rgba(59, 251, 1, 0.766); */
 }
 
 .form-control.error input {
     border: 2px solid #FF3D01;
-    /* box-shadow: 0 0 5px rgba(251, 1, 1, 0.766); */
 }
 
 .form-control.error small {
